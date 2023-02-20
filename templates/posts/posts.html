@@ -14,9 +14,14 @@
             margin: 20px;
             transition: all 0.3s;
         }
+
         .post_block:hover {
             transform: scale(1.1);
             cursor: pointer;
+        }
+
+        .post_image {
+            width: 100%;
         }
     </style>
     <div class="posts">
@@ -24,8 +29,12 @@
             <div class="post_block">
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
+                        <img class="post_image" src="/media/{{ post.image }}">
                         <h5 class="card-title">{{ post.title }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">Rate: {{ post.rate }}</h6>
+                        {% for hashtag in post.hashtags %}
+                            <p>{{ hashtag.title }}</p>
+                        {% endfor %}
                         <a href="#" class="card-link">More</a>
                     </div>
                 </div>
